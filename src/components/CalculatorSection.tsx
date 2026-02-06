@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, RefreshCw, Calculator } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchCryptoPrices } from "@/utils/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,29 +20,51 @@ const RATES = {
     USDT: { usd: 1, name: "Tether" },
 };
 
-const USD_TO_NGN = 1750; // Estimated parallel rate, could be fetched dynamically
+const USD_TO_NGN = 1750; // Estimated parallel rate
 
 const CalculatorSection = () => {
     const [asset, setAsset] = useState("BTC");
     const [amount, setAmount] = useState<string>("0.1");
     const [payout, setPayout] = useState<number>(0);
     const [loading, setLoading] = useState(false);
+    // Use shared query for prices
+    const { data: priceData, isLoading } = useQuery({
+        queryKey: ["crypto-prices"],
+        queryFn: fetchCryptoPrices,
+        refetchInterval: 60000, // Sync with MarketsSection, but maybe less frequent? 
+        // Actually if key matches, they share the hook. 
+        // Let's rely on the StaleTime from MarketsSection or set a common one.
+        staleTime: 30000,
+    });
 
-    // Simulate fetching live prices
+    const getPrice = (symbol: string) => {
+        if (!priceData) {
+            // Fallbacks
+            if (symbol === "BTC") return 65000;
+            if (symbol === "ETH") return 3500;
+            if (symbol === "USDT") return 1;
+            return 0;
+        }
+        if (symbol === "BTC") return priceData.bitcoin.usd;
+        if (symbol === "ETH") return priceData.ethereum.usd;
+        if (symbol === "USDT") return priceData.tether.usd;
+        return 0;
+    };
+
+    const currentPrice = getPrice(asset);
+
     useEffect(() => {
         const calculate = () => {
             setLoading(true);
-            // In a real app, this would be an API call
             setTimeout(() => {
-                const rate = RATES[asset as keyof typeof RATES].usd;
                 const val = parseFloat(amount || "0");
-                setPayout(val * rate * USD_TO_NGN);
+                setPayout(val * currentPrice * USD_TO_NGN);
                 setLoading(false);
-            }, 400); // Small delay for realism
+            }, 300);
         };
 
         calculate();
-    }, [asset, amount]);
+    }, [asset, amount, currentPrice]);
 
     return (
         <section className="py-24 relative overflow-hidden">
@@ -106,7 +130,7 @@ const CalculatorSection = () => {
                                 </div>
                                 <div className="flex justify-between text-sm text-muted-foreground">
                                     <span>Asset Price:</span>
-                                    <span className="font-mono">${RATES[asset as keyof typeof RATES].usd.toLocaleString()}</span>
+                                    <span className="font-mono">${currentPrice.toLocaleString()}</span>
                                 </div>
                             </div>
                         </div>

@@ -10,45 +10,44 @@ interface CoinData {
   up: boolean;
 }
 
-const fetchPrices = async (): Promise<CoinData[]> => {
-  const res = await fetch(
-    "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd&include_24hr_change=true"
-  );
-  if (!res.ok) throw new Error("Failed to fetch prices");
-  const data = await res.json();
+import { fetchCryptoPrices } from "@/utils/api";
 
-  return [
-    {
-      name: "Bitcoin",
-      symbol: "BTC",
-      price: `$${data.bitcoin.usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-      change: `${data.bitcoin.usd_24h_change >= 0 ? "+" : ""}${data.bitcoin.usd_24h_change.toFixed(2)}%`,
-      up: data.bitcoin.usd_24h_change >= 0,
-    },
-    {
-      name: "Tether",
-      symbol: "USDT",
-      price: `$${data.tether.usd.toLocaleString("en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 })}`,
-      change: `${data.tether.usd_24h_change >= 0 ? "+" : ""}${data.tether.usd_24h_change.toFixed(4)}%`,
-      up: data.tether.usd_24h_change >= 0,
-    },
-    {
-      name: "Ethereum",
-      symbol: "ETH",
-      price: `$${data.ethereum.usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-      change: `${data.ethereum.usd_24h_change >= 0 ? "+" : ""}${data.ethereum.usd_24h_change.toFixed(2)}%`,
-      up: data.ethereum.usd_24h_change >= 0,
-    },
-  ];
-};
+
 
 const MarketsSection = () => {
-  const { data: coins, isLoading, isError, dataUpdatedAt, refetch } = useQuery({
+  const { data: rawData, isLoading, isError, dataUpdatedAt, refetch } = useQuery({
     queryKey: ["crypto-prices"],
-    queryFn: fetchPrices,
-    refetchInterval: 30000, // refresh every 30s
-    staleTime: 15000,
+    queryFn: fetchCryptoPrices,
+    refetchInterval: 60000, // refresh every 60s
+    staleTime: 30000,
   });
+
+  const formatData = (data: any): CoinData[] => {
+    if (!data) return [];
+    return [
+      {
+        name: "Bitcoin",
+        symbol: "BTC",
+        price: `$${data.bitcoin.usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        change: `${data.bitcoin.usd_24h_change >= 0 ? "+" : ""}${data.bitcoin.usd_24h_change.toFixed(2)}%`,
+        up: data.bitcoin.usd_24h_change >= 0,
+      },
+      {
+        name: "Tether",
+        symbol: "USDT",
+        price: `$${data.tether.usd.toLocaleString("en-US", { minimumFractionDigits: 4, maximumFractionDigits: 4 })}`,
+        change: `${data.tether.usd_24h_change >= 0 ? "+" : ""}${data.tether.usd_24h_change.toFixed(4)}%`,
+        up: data.tether.usd_24h_change >= 0,
+      },
+      {
+        name: "Ethereum",
+        symbol: "ETH",
+        price: `$${data.ethereum.usd.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        change: `${data.ethereum.usd_24h_change >= 0 ? "+" : ""}${data.ethereum.usd_24h_change.toFixed(2)}%`,
+        up: data.ethereum.usd_24h_change >= 0,
+      },
+    ];
+  };
 
   const fallbackCoins: CoinData[] = [
     { name: "Bitcoin", symbol: "BTC", price: "—", change: "—", up: true },
@@ -56,7 +55,7 @@ const MarketsSection = () => {
     { name: "Ethereum", symbol: "ETH", price: "—", change: "—", up: true },
   ];
 
-  const displayCoins = coins ?? fallbackCoins;
+  const displayCoins = rawData ? formatData(rawData) : fallbackCoins;
 
   return (
     <section id="markets" className="py-24 relative">
