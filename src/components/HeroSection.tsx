@@ -43,7 +43,9 @@ const HeroSection = () => {
             className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-tight tracking-tight mb-6"
           >
             Switch Smarter. <br className="hidden sm:block" />
-            Trade Bitcoin with <span className="text-gradient-orange">Confidence</span>.
+            Trade <span className="text-gradient-orange">BTC</span>,{" "}
+            <span className="text-gradient-green">USDT</span>,{" "}
+            <span className="text-gradient-orange">ETH</span> with Confidence.
           </motion.h1>
 
           <motion.p
