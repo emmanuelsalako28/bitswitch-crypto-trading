@@ -65,12 +65,11 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button variant="hero" size="lg" className="text-base px-8 py-6">
-              Get Started <ArrowRight className="ml-1 h-5 w-5" />
-            </Button>
-            <Button variant="hero-outline" size="lg" className="text-base px-8 py-6">
-              <Play className="mr-1 h-4 w-4" /> Learn More
-            </Button>
+            <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="lg" className="text-base px-8 py-6">
+                Get Started <ArrowRight className="ml-1 h-5 w-5" />
+              </Button>
+            </a>
           </motion.div>
 
           {/* Stats row */}

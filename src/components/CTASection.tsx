@@ -24,9 +24,11 @@ const CTASection = () => {
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               Join millions of traders worldwide. Create your account in minutes and start building your portfolio today.
             </p>
-            <Button variant="hero" size="lg" className="text-base px-10 py-6">
-              Create Free Account <ArrowRight className="ml-1 h-5 w-5" />
-            </Button>
+            <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="lg" className="text-base px-10 py-6">
+                Trade with us <ArrowRight className="ml-1 h-5 w-5" />
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>

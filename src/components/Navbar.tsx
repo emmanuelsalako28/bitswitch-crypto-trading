@@ -39,8 +39,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">Log In</Button>
-          <Button variant="hero" size="sm">Get Started</Button>
+          <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer">
+            <Button variant="hero" size="sm">Get Started</Button>
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -73,8 +74,9 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex gap-3 pt-2">
-                <Button variant="ghost" size="sm" className="flex-1">Log In</Button>
-                <Button variant="hero" size="sm" className="flex-1">Get Started</Button>
+                <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button variant="hero" size="sm" className="w-full">Get Started</Button>
+                </a>
               </div>
             </div>
           </motion.div>
