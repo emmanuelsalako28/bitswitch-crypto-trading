@@ -83,9 +83,9 @@ const HeroSection = () => {
             className="mt-16 grid grid-cols-3 gap-4 max-w-lg mx-auto"
           >
             {[
-              { value: "$12B+", label: "Trading Volume" },
-              { value: "2M+", label: "Active Users" },
-              { value: "150+", label: "Countries" },
+              { value: "₦100M+", label: "Transactions Processed" },
+              { value: "1,000+", label: "Successful Transactions" },
+              { value: "Trusted By", label: "Users Nationwide" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl sm:text-3xl font-display font-bold text-gradient-orange">{stat.value}</div>
