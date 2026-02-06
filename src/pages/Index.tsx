@@ -14,9 +14,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <MarketsSection />
       <HowToTradeSection />
       <CalculatorSection />
-      <MarketsSection />
       <TrustSection />
       <CTASection />
       <Footer />

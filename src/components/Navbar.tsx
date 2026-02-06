@@ -27,15 +27,24 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
+          <a
+            href="#calculator"
+            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+          >
+            Calculator
+          </a>
+          <a
+            href="#markets"
+            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+          >
+            Markets
+          </a>
+          <a
+            href="#contact"
+            className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+          >
+            Contact
+          </a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -63,16 +72,27 @@ const Navbar = () => {
             className="md:hidden glass border-t border-border"
           >
             <div className="flex flex-col gap-2 p-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground py-2 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              <a
+                href="#calculator"
+                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Calculator
+              </a>
+              <a
+                href="#markets"
+                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Markets
+              </a>
+              <a
+                href="#contact"
+                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </a>
               <div className="flex gap-3 pt-2">
                 <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button variant="hero" size="sm" className="w-full">Get Started</Button>
