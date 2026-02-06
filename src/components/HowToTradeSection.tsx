@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { UserPlus, Wallet, TrendingUp, ArrowRight } from "lucide-react";
+import { TrendingUp, Calculator, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const steps = [
     {
-        icon: UserPlus,
-        title: "Create Account",
-        description: "Sign up in minutes. Verify your email and identity to unlock full features.",
-    },
-    {
-        icon: Wallet,
-        title: "Fund Your Wallet",
-        description: "Deposit crypto or fiat currency securely using our diverse payment options.",
-    },
-    {
         icon: TrendingUp,
-        title: "Start Trading",
-        description: "Access live markets, analyze trends, and execute trades instantly.",
+        title: "Check the Live Price in Naira",
+        description: "View the current Bitcoin selling price in NGN in real time before you proceed.",
+    },
+    {
+        icon: Calculator,
+        title: "Enter Amount to Sell",
+        description: "Choose how much Bitcoin you want to sell and instantly see the naira value.",
+    },
+    {
+        icon: CheckCircle2,
+        title: "Complete Your Sale",
+        description: "Send your Bitcoin and receive your payout quickly and securely.",
     },
 ];
 
@@ -31,10 +31,10 @@ const HowToTradeSection = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4">
-                        Start Trading in <span className="text-gradient-orange">3 Simple Steps</span>
+                        Sell Bitcoin Instantly in <span className="text-gradient-orange">3 Simple Steps</span>
                     </h2>
                     <p className="text-muted-foreground max-w-md mx-auto">
-                        Your journey to crypto success starts here.
+                        No sign-up. No account. Just fast Bitcoin selling.
                     </p>
                 </motion.div>
 
@@ -62,10 +62,15 @@ const HowToTradeSection = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#markets">
+                        <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/5">
+                            Check Bitcoin Price
+                        </Button>
+                    </a>
                     <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer">
                         <Button variant="hero" size="lg">
-                            Start Now <ArrowRight className="ml-1 h-5 w-5" />
+                            Sell Bitcoin Now <ArrowRight className="ml-1 h-5 w-5" />
                         </Button>
                     </a>
                 </div>
