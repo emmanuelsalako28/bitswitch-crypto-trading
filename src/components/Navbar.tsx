@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer">
             <Button variant="hero" size="sm">Get Started</Button>
           </a>
         </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex gap-3 pt-2">
-                <a href="https://wa.me/2348035836698" target="_blank" rel="noopener noreferrer" className="flex-1">
+                <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button variant="hero" size="sm" className="w-full">Get Started</Button>
                 </a>
               </div>
