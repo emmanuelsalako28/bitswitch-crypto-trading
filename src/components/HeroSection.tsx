@@ -32,7 +32,7 @@ const HeroSection = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-sm text-primary mb-6">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Live Trading Now
+              Exploring the Exciting World of Digital Currencies
             </span>
           </motion.div>
 
@@ -42,10 +42,12 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-tight tracking-tight mb-6"
           >
-            Switch Smarter.{" "}
+            We Trade{" "}
+            <span className="text-gradient-orange">BTC</span>,{" "}
+            <span className="text-gradient-green">USDT</span>,{" "}
+            <span className="text-gradient-orange">ETH</span>
             <br className="hidden sm:block" />
-            Trade Bitcoin with{" "}
-            <span className="text-gradient-orange">Confidence.</span>
+            at the Best Rate.
           </motion.h1>
 
           <motion.p
@@ -54,7 +56,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
           >
-            Fast, secure, and seamless crypto trading built for modern investors.
+            Fast, Trustworthy and Reliable. Seamless crypto trading built for modern investors.
           </motion.p>
 
           <motion.div
