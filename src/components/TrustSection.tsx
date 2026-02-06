@@ -1,21 +1,26 @@
 import { motion } from "framer-motion";
-import { Lock, Eye, Server } from "lucide-react";
+import { Lock, ShieldCheck, FileCheck, Globe } from "lucide-react";
 
 const trustItems = [
   {
     icon: Lock,
-    title: "Bank-Grade Encryption",
-    description: "256-bit AES encryption secures every transaction and piece of data on our platform.",
+    title: "Advanced Encryption",
+    description: "Advanced encryption to protect user data and transactions.",
   },
   {
-    icon: Eye,
-    title: "Full Transparency",
-    description: "Real-time proof of reserves and publicly audited financials you can verify anytime.",
+    icon: ShieldCheck,
+    title: "Secure Infrastructure",
+    description: "Secure wallet infrastructure designed to safeguard your assets.",
   },
   {
-    icon: Server,
-    title: "99.99% Uptime",
-    description: "Redundant infrastructure across multiple regions ensures maximum reliability.",
+    icon: FileCheck,
+    title: "Account Protection",
+    description: "Comprehensive account protection and continuous monitoring.",
+  },
+  {
+    icon: Globe,
+    title: "Transparent",
+    description: "Unwavering commitment to transparency and operational reliability.",
   },
 ];
 
@@ -34,11 +39,11 @@ const TrustSection = () => {
             Security You Can <span className="text-gradient-green">Trust</span>
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Your assets are protected by industry-leading security standards.
+            At Bitswitch, security is our top priority. We are committed to protecting user funds, data, and transactions through robust security measures and transparent operations.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {trustItems.map((item, i) => (
             <motion.div
               key={item.title}

@@ -32,7 +32,7 @@ const HeroSection = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-sm text-primary mb-6">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Exploring the Exciting World of Digital Currencies
+              Switch Smarter. Trade Better.
             </span>
           </motion.div>
 
@@ -42,12 +42,8 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-tight tracking-tight mb-6"
           >
-            We Trade{" "}
-            <span className="text-gradient-orange">BTC</span>,{" "}
-            <span className="text-gradient-green">USDT</span>,{" "}
-            <span className="text-gradient-orange">ETH</span>
-            <br className="hidden sm:block" />
-            at the Best Rate.
+            Switch Smarter. <br className="hidden sm:block" />
+            Trade Bitcoin with <span className="text-gradient-orange">Confidence</span>.
           </motion.h1>
 
           <motion.p
@@ -56,7 +52,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
           >
-            Fast, Trustworthy and Reliable. Seamless crypto trading built for modern investors.
+            Bitswitch is a secure and easy-to-use platform designed to help you buy, sell, and manage Bitcoin seamlessly — anytime, anywhere.
           </motion.p>
 
           <motion.div
@@ -68,6 +64,11 @@ const HeroSection = () => {
             <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="lg" className="text-base px-8 py-6">
                 Get Started <ArrowRight className="ml-1 h-5 w-5" />
+              </Button>
+            </a>
+            <a href="#markets">
+              <Button variant="hero-outline" size="lg" className="text-base px-8 py-6">
+                Explore Platform
               </Button>
             </a>
           </motion.div>

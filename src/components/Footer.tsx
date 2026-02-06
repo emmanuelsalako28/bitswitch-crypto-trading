@@ -12,14 +12,23 @@ const Footer = () => {
               <span className="text-gradient-orange">switch</span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The modern platform for digital asset trading. Fast, secure, simple.
+              Bitswitch is a digital asset trading platform focused on delivering a reliable and user-friendly Bitcoin trading experience.
             </p>
           </div>
 
           {[
             { title: "Product", links: ["Trade", "Markets", "Wallet", "API"] },
             { title: "Company", links: ["About", "Careers", "Blog", "Press"] },
-            { title: "Support", links: ["Help Center", "Contact", "Status", "Legal"] },
+            {
+              title: "Support",
+              links: ["Help Center", "Fees", "Security", "Contact Support"],
+              extra: (
+                <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
+                  <a href="mailto:support@bitswitch.com" className="hover:text-primary transition-colors">support@bitswitch.com</a>
+                  <a href="https://wa.me/2348035826698" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">WhatsApp: +234 803 582 6698</a>
+                </div>
+              )
+            },
           ].map((col) => (
             <div key={col.title}>
               <h4 className="font-display font-semibold text-sm mb-3">{col.title}</h4>
@@ -32,8 +41,18 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
+              {col.extra && col.extra}
             </div>
           ))}
+        </div>
+
+        <div className="border-t border-border py-8 text-xs text-muted-foreground leading-relaxed">
+          <p className="mb-4">
+            <strong>Disclaimer:</strong> Cryptocurrency trading involves risk. Prices may fluctuate, and users should trade responsibly.
+          </p>
+          <p>
+            Bitswitch complies with all applicable AML/KYC regulations. User identity verification is required for all accounts to ensure a secure trading environment.
+          </p>
         </div>
 
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">

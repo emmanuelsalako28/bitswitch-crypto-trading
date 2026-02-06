@@ -1,29 +1,29 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, BarChart3, Clock } from "lucide-react";
+import { Zap, Shield, Smartphone, Clock } from "lucide-react";
 
 const features = [
   {
     icon: Zap,
     title: "Fast Transactions",
-    description: "Execute trades in milliseconds with our high-performance matching engine.",
+    description: "Execute trades quickly with optimized performance and real-time pricing.",
     gradient: "text-gradient-orange",
   },
   {
     icon: Shield,
-    title: "Secure Wallets",
-    description: "Enterprise-grade security with cold storage and multi-signature protection.",
+    title: "Secure by Design",
+    description: "Your assets and data are protected using industry-standard security practices.",
     gradient: "text-gradient-green",
   },
   {
-    icon: BarChart3,
-    title: "Real-Time Prices",
-    description: "Live market data with advanced charting tools and price alerts.",
+    icon: Smartphone,
+    title: "Simple & Intuitive",
+    description: "A clean interface designed for both beginners and experienced traders.",
     gradient: "text-gradient-orange",
   },
   {
     icon: Clock,
     title: "24/7 Access",
-    description: "Trade anytime, anywhere. Our platform never sleeps, so you never miss a move.",
+    description: "Trade Bitcoin anytime, anywhere — on desktop or mobile.",
     gradient: "text-gradient-green",
   },
 ];
