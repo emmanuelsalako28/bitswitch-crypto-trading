@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -19,7 +20,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <a href="#" className="flex items-center gap-2 font-display text-xl font-bold tracking-tight">
-          <Zap className="h-6 w-6 text-primary" />
+          <img src={logo} alt="Bitswitch logo" className="h-8 w-8 object-contain" />
           <span className="text-foreground">Bit</span>
           <span className="text-gradient-orange">switch</span>
         </a>

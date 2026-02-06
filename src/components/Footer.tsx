@@ -1,4 +1,4 @@
-import { Zap } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div className="col-span-2 md:col-span-1">
             <a href="#" className="flex items-center gap-2 font-display text-lg font-bold mb-3">
-              <Zap className="h-5 w-5 text-primary" />
+              <img src={logo} alt="Bitswitch logo" className="h-7 w-7 object-contain" />
               <span>Bit</span>
               <span className="text-gradient-orange">switch</span>
             </a>
